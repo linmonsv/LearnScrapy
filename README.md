@@ -124,3 +124,23 @@ Python Twitter 库
 或者把API 作为一种工具，从全新的视角对采集到的数据进行解释。
 ##4.9　再说一点API
 API 具有“许多不同的软件都可以通过相同的API 分享数据”的特点
+
+#第6章　读取文档
+互联网最基本的特征：作为不同类型文件的传输媒介
+##6.1　文档编码
+文档编码的方式通常可以根据文件的扩展名进行判断，虽然文件扩展名并不是由编码确定的，而是由开发者确定的
+##6.2　纯文本
+所以BeautifulSoup 库就没用了
+**文本编码和全球互联网**
+1. 编码类型简介
+在UTF-8 设计过程中，设计师决定利用ASCII 文档里的“填充位”，
+让所有以“0”开头的字节表示这个字符只用1 个字节，从而把ASCII 和UTF-8 编码完美地结合在一起
+2. 编码进行时
+<meta charset="utf-8" />
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+##6.3　CSV
+Python 有一个超赞的标准库（https://docs.python.org/3.4/library/csv.html）可以读写CSV 文件
+##6.4　PDF
+PDFMiner3K 就是一个非常好用的库（是PDFMiner 的Python 3.x 移植版）
+
+
