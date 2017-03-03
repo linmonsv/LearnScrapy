@@ -75,14 +75,20 @@ code":"MA","region_name":"Massachusetts","city":"Chelmsford","zipcode":"01824",
 * POST
 * PUT
 * DELETE
+
 GET 就是你在浏览器中输入网址浏览网站所做的事情
+
 POST 基本就是当你填写表单或提交信息到网络服务器的后端程序时所做的事情
+
 PUT 在网站交互过程中不常用，但是在API 里面有时会用到。PUT 请求用来更新一个对象或信息
+
 DELETE 用于删除一个对象
+
 ###4.2.2　验证
 token = "<your api key>"
 webRequest = urllib.request.Request("http://myapi.com", headers={"token":token})
 html = urlopen(webRequest)
+
 ##4.3　服务器响应
 大多数反馈的数据格式都是XML 和JSON
 这几年，JSON 比XML 更受欢迎，主要有两个原因:
@@ -90,17 +96,22 @@ html = urlopen(webRequest)
 JSON 格式比XML 更受欢迎的另一个原因是网络技术的改变。
 过去，服务器端用PHP和.NET 这些程序作为API 的接收端。
 现在，服务器端也会用一些 `JavaScript` 框架作为API的发送和接收端
+
 **API调用**
+
 当使用GET 请求获取数据时，用URL 路径描述你要获取的数据范围，查询参数可以作为过滤器或附加请求使用
 http://socialmediasite.com/users/1234/posts?from=08012014&to=08312014
 有许多API 会通过文件路径（path）的形式指定API 版本、数据格式和其他属性
 http://socialmediasite.com/api/v4/json/users/1234/posts?from=08012014&to=08312014
 还有一些API 会通过请求参数（request parameter）的形式指定数据格式和API 版本
 http://socialmediasite.com/users/1234/posts?format=json&from=08012014&to=08312014
+
 ##4.4　Echo Nest
 The Echo Nest 音乐数据网站3 是一个用网络爬虫建立的超级给力的企业级案例
 它的API 可以经非商业用途免费使用。4 使用API 得有一个key，你可以在The Echo Nest 的注册
+
 **几个示例**
+
 ##4.5　Twitter API
 Twitter 的API 请求限制有两种方法：
 每15 分钟15 次和每15 分钟180 次，由请求类型决定。
