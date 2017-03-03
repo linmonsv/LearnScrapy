@@ -44,3 +44,7 @@ soup.findAll(lambda tag: len(tag.attrs) == 2)
 这是Python 自带的解析库（https://docs.python.org/3/library/html.parser.html）。
 因为它不用安装（只要装了Python 就有），所以可以很方便地使用
 
+# 第3章　开始采集
+## 3.1　遍历单个域名
+
+
