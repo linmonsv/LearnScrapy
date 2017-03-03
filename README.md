@@ -46,5 +46,16 @@ soup.findAll(lambda tag: len(tag.attrs) == 2)
 
 # 第3章　开始采集
 ## 3.1　遍历单个域名
+## 3.2　采集整个网站
+深网（deep Web）、暗网（dark Web）或隐藏网络（hidden Web）
+遍历整个网站的网络数据采集有许多好处:
+* 生成网站地图
+* 收集数据
+## 3.3　通过互联网采集
+图3-1：从互联网上不同的网站采集外链的程序流程图
+图3-2：收集内链和外链的程序流程图
+## 3.4　用Scrapy采集
+$scrapy startproject wikiSpider
+
 
 
