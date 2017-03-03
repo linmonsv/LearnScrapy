@@ -57,5 +57,70 @@ soup.findAll(lambda tag: len(tag.attrs) == 2)
 ## 3.4　用Scrapy采集
 $scrapy startproject wikiSpider
 
-
-
+#第4章　使用API
+尽管目前不同的软件应用都有各自不同的API，但“API”经常被看成“网络应用API”。
+一般情况下，程序员可以用HTTP 协议向API 发起请求以获取某种信息，API 会用XML
+（eXtensible Markup Language， 可扩展标记语言） 或JSON（JavaScript Object Notation，
+JavaScript 对象表示）格式返回服务器响应的信息
+##4.1　API概述
+https://console.developers.google.com/
+http://freegeoip.net/json/50.78.253.58
+{"ip":"50.78.253.58","country_code":"US","country_name":"美国","region_
+code":"MA","region_name":"Massachusetts","city":"Chelmsford","zipcode":"01824",
+"latitude":42.5879,"longitude":-71.3498,"metro_code":"506","area_code":"978"}
+##4.2　API通用规则
+###4.2.1　方法
+利用HTTP 从网络服务获取信息有四种方式：
+* GET
+* POST
+* PUT
+* DELETE
+GET 就是你在浏览器中输入网址浏览网站所做的事情
+POST 基本就是当你填写表单或提交信息到网络服务器的后端程序时所做的事情
+PUT 在网站交互过程中不常用，但是在API 里面有时会用到。PUT 请求用来更新一个对象或信息
+DELETE 用于删除一个对象
+###4.2.2　验证
+token = "<your api key>"
+webRequest = urllib.request.Request("http://myapi.com", headers={"token":token})
+html = urlopen(webRequest)
+##4.3　服务器响应
+大多数反馈的数据格式都是XML 和JSON
+这几年，JSON 比XML 更受欢迎，主要有两个原因:
+首先，JSON 文件比完整的XML `格式小`。
+JSON 格式比XML 更受欢迎的另一个原因是网络技术的改变。
+过去，服务器端用PHP和.NET 这些程序作为API 的接收端。
+现在，服务器端也会用一些 `JavaScript` 框架作为API的发送和接收端
+**API调用**
+当使用GET 请求获取数据时，用URL 路径描述你要获取的数据范围，查询参数可以作为过滤器或附加请求使用
+http://socialmediasite.com/users/1234/posts?from=08012014&to=08312014
+有许多API 会通过文件路径（path）的形式指定API 版本、数据格式和其他属性
+http://socialmediasite.com/api/v4/json/users/1234/posts?from=08012014&to=08312014
+还有一些API 会通过请求参数（request parameter）的形式指定数据格式和API 版本
+http://socialmediasite.com/users/1234/posts?format=json&from=08012014&to=08312014
+##4.4　Echo Nest
+The Echo Nest 音乐数据网站3 是一个用网络爬虫建立的超级给力的企业级案例
+它的API 可以经非商业用途免费使用。4 使用API 得有一个key，你可以在The Echo Nest 的注册
+**几个示例**
+##4.5　Twitter API
+Twitter 的API 请求限制有两种方法：
+每15 分钟15 次和每15 分钟180 次，由请求类型决定。
+比如你可以1 分钟获取12 次（每15 分钟180 次的平均数）Twitter 用户基本信息，
+但是1 分钟只能获取1 次（每15 分钟15 次的平均数）这些用户的关注者（follower）
+###4.5.1　开始
+注册
+###4.5.2　几个示例
+Python Twitter 库
+##4.6　Google API
+查看Google API 有两种方式。
+一种方式是通过产品页面（https://developers.google.com/products/）
+另一种方式是API 控制台（https://console.developers.google.com/）
+###4.6.1　开始
+建立自己的账号
+如果你不限制允许使用API 的IP 地址——任何使用你的API key 调用你的API 都算成是你的消费，即使你并不知情。
+###4.6.2　几个示例
+##4.7　解析JSON数据
+##4.8　回到主题
+真正有意思的事情，是把多个数据源组合成新的形式，
+或者把API 作为一种工具，从全新的视角对采集到的数据进行解释。
+##4.9　再说一点API
+API 具有“许多不同的软件都可以通过相同的API 分享数据”的特点
