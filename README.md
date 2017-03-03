@@ -142,5 +142,12 @@ API 具有“许多不同的软件都可以通过相同的API 分享数据”的
 Python 有一个超赞的标准库（https://docs.python.org/3.4/library/csv.html）可以读写CSV 文件
 ##6.4　PDF
 PDFMiner3K 就是一个非常好用的库（是PDFMiner 的Python 3.x 移植版）
+##6.5　微软Word和.docx
+Word 文件从未打算让人频繁传递
+.doc 文件格式。这种二进制格式很难读取，而且能够读取word 格式的软件很少
+为了跟上时代，让自己的软件能够符合主流软件的标准，
+微软决定使用Open Office 的类XML 格式标准，
+此后新版Word 文件才与其他文字处理软件兼容，这个格式就是.docx。
+
 
 
