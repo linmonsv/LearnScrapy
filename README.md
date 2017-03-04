@@ -329,3 +329,113 @@ OpenRefine 的独特之处在于虽然它的界面是一个浏览器，但实际
 验证码（CAPTCHA）
 
 蜜罐（honey pot）、隐含字段（hidden field），以及其他保护网页表单的安全措施
+
+#第1 0 章  采集JavaScript
+
+通常，你在网上遇到的客户端语言只有两种：ActionScript（开发Flash 应用的语言）和JavaScript。
+
+```javascript
+<script>
+    alert("This creates a pop-up using JavaScript");
+</script>
+```
+
+##10.1  JavaScript简介
+
+```javascript
+<script>
+function fibonacci(a, b){
+    var nextNum = a + b;
+    console.log(nextNum+" is in the Fibonacci sequence");
+    if(nextNum < 100){
+        fibonacci(b, nextNum);
+    }
+}
+fibonacci(1, 1);
+</script>
+```
+
+```javascript
+<script>
+var fibonacci = function() {
+    var a = 1;
+    var b = 1;
+    return function() {
+        var temp = b;
+        b = a + b;
+        a = temp;
+        return b;
+    }
+}
+var fibInstance = fibonacci();
+console.log(fibInstance()+" is in the Fibonacci sequence");
+console.log(fibInstance()+" is in the Fibonacci sequence");
+console.log(fibInstance()+" is in the Fibonacci sequence");
+</script>
+```
+
+**常用JavaScript库**
+
+用Python 执行JavaScript 代码的效率非常低，既费时又费力，尤其是在处理规模较大的JavaScript 代码时。
+
+如果有绕过JavaScript 并直接解析它的方法（不需要执行它就可以获得信息）会非常实用，可以帮你避开一大堆JavaScript 的麻烦事。
+
+1. jQuery
+
+一个网站使用jQuery 的特征，就是源代码里包含了jQuery 入口，比如：
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+2. Google Analytics
+
+<!-- Google Analytics -->
+
+<script type="text/javascript">
+
+,,,,,,
+
+如果一个网站使用了Google Analytics 或其他类似的网络分析系统，
+
+而你不想让网站知道你在采集数据，就要确保把那些分析工具的cookie 或者所有cookie 都关掉
+
+3. Google地图
+
+##10.2　Ajax和动态HTML
+
+如果提交表单之后，或从服务器获取信息之后，网站的页面不需要重新刷新，
+
+那么你访问的网站就在用Ajax 技术
+
+Ajax 全称是Asynchronous JavaScript and XML（异步JavaScript 和XML），
+
+网站不需要使用单独的页面请求就可以和网络服务器进行交互
+
+动态HTML（dynamic HTML，DHTML）也是一系列用于解决网络问题的技术集合。
+
+DHTML 是用客户端语言改变页面的HTML 元素（HTML、CSS，或者二者皆被改变）。
+
+那些使用了Ajax 或DHTML 技术改变/ 加载内容的页面，可能有一些采集手段，
+
+但是用Python 解决这个问题只有两种途径：
+
+* 直接从JavaScript 代码里采集内容，
+
+* 或者用Python 的第三方库运行JavaScript，直接采集你在浏览器里看到的页面
+
+**在Python中用Selenium执行JavaScript**
+
+一个强大的网络数据采集工具，其最初是为网站自动化测试而开发的
+
+PhantomJS 是一个“无头”（headless）浏览器。
+
+它会把网站加载到内存并执行页面上的JavaScript，但是它不会向用户展示网页的图形界面
+
+微软的XPath 语法页面（https://msdn.microsoft.com/en-us/enus/library/ms256471）
+
+##10.3　处理重定向
+
+服务器端重定向一般都可以轻松地通过Python 的urllib 库解决
+
+客户端重定向却不能这样处理，除非你有工具可以执行JavaScript。
+
+Selenium 可以执行这种JavaScript 重定向，
