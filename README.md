@@ -439,3 +439,55 @@ PhantomJS 是一个“无头”（headless）浏览器。
 客户端重定向却不能这样处理，除非你有工具可以执行JavaScript。
 
 Selenium 可以执行这种JavaScript 重定向，
+
+#第1 1 章  图像识别与文字处理
+
+利用这种人类用户可以正常读取但是大多数机器人都没法读取的图片， 验证码（CAPTCHA）就出现了
+
+将图像翻译成文字一般被称为光学文字识别（Optical Character Recognition，OCR）
+
+##11.1　OCR库概述
+
+###11.1.1　Pillow
+
+尽管Pillow 算不上是图像处理功能最全的库，但是它拥有你需要使用的全部功能，除非你要用Python 重写一个Photoshop 或进行更加复杂的研究。
+
+它也是一个文档健全且十分易用的库。
+
+###11.1.2　Tesseract
+
+Tesseract 是一个OCR 库，目前由Google 赞助（Google 也是一家以OCR 和机器学习技术闻名于世的公司）。
+
+Tesseract 是目前公认最优秀、最精确的开源OCR 系统
+
+###11.1.3　NumPy
+
+NumPy 是一个非常强大的库，具有大量线性代数以及大规模科学计算的方法
+
+NumPy 可以用数学方法把图片表示成巨大的像素数组，所以它可以流畅地配合Tesseract 完成任务
+
+##11.2　处理格式规范的文字
+
+利用Pillow 库，我们可以创建一个阈值过滤器来去掉渐变的背景色，只把文字留下来，
+
+从而让图片更加清晰，便于Tesseract读取
+
+Tesseract 最大的缺点是对渐变背景色的处理
+
+**从网站图片中抓取文字**
+
+通过给Tesseract 提供大量已知的文字与图片映射集，
+
+经过训练Tesseract就可以“学会”识别同一种字体，而且可以达到极高的精确率和准确率，甚至可以忽略图片中文字的背景色和相对位置等问题。
+
+##11.3　读取验证码与训练Tesseract
+
+CAPTCHA（Completely Automated Public Turing test to tell Computers and Humans Apart）。
+
+全自动区分计算机和人类的图灵测试
+
+流行的PHP 内容管理系统Drupal 有一个著名的验证码模块（https://www.drupal.org/project/captcha），可以生成不同难度的验证码
+
+**训练Tesseract**
+
+##11.4　获取验证码提交答案¸
