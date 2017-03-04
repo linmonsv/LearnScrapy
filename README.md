@@ -384,15 +384,20 @@ console.log(fibInstance()+" is in the Fibonacci sequence");
 
 一个网站使用jQuery 的特征，就是源代码里包含了jQuery 入口，比如：
 
+```javascript
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+```
 
 2. Google Analytics
 
+```javascript
 <!-- Google Analytics -->
 
 <script type="text/javascript">
 
 ,,,,,,
+```
+
 
 如果一个网站使用了Google Analytics 或其他类似的网络分析系统，
 
